@@ -154,6 +154,6 @@ public class BlockMaker{
 	}
 	
     public Image loadImage(String fileName) {
-        return new ImageIcon("images/"+fileName+".png").getImage();
+        return new ImageIcon(this.getClass().getClassLoader().getResource("images/"+fileName+".png")).getImage();
     }
 }

@@ -1,7 +1,18 @@
 package tetris.sound;
 
-import java.io.*;
-import javax.sound.midi.*;
+import java.io.BufferedInputStream;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.URL;
+
+import javax.sound.midi.InvalidMidiDataException;
+import javax.sound.midi.MetaEventListener;
+import javax.sound.midi.MetaMessage;
+import javax.sound.midi.MidiSystem;
+import javax.sound.midi.MidiUnavailableException;
+import javax.sound.midi.Sequence;
+import javax.sound.midi.Sequencer;
 
 public class MidiPlayer implements MetaEventListener {
 
@@ -34,6 +45,21 @@ public class MidiPlayer implements MetaEventListener {
     public Sequence getSequence(String filename) {
         try {
             return getSequence(new FileInputStream(filename));
+        }
+        catch (IOException ex) {
+            ex.printStackTrace();
+            return null;
+        }
+    }
+
+
+    /**
+        Loads a sequence from the file system. Returns null if
+        an error occurs.
+    */
+    public Sequence getSequence(URL url) {
+        try {
+            return getSequence(url.openStream());
         }
         catch (IOException ex) {
             ex.printStackTrace();

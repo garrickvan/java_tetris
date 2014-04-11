@@ -33,6 +33,7 @@ public class GameRenderer{
 		//主菜单
 		if(gs.senceState==gs.INMENU){
 			
+			
 			Image background =loadImage("background1.jpg");
 			g.drawImage(background,0,0,gs.getWidth(),gs.getHeight(),null);
 
@@ -277,6 +278,6 @@ public class GameRenderer{
 		加载图片
 	 **/
     public Image loadImage(String fileName) {
-        return new ImageIcon("images/"+fileName).getImage();
+        return new ImageIcon(this.getClass().getClassLoader().getResource("images/"+fileName)).getImage();
     }
 }

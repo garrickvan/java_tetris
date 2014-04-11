@@ -434,9 +434,7 @@ public class GameSence implements ActionListener{
 		创建按钮
 	**/
     public JButton createButton(String name, String toolTip) {
-
-        String imagePath = "images/" + name + ".png";
-        ImageIcon iconRollover = new ImageIcon(imagePath);
+        ImageIcon iconRollover = new ImageIcon(this.getClass().getClassLoader().getResource("images/" + name + ".png"));
         int w = iconRollover.getIconWidth();
         int h = iconRollover.getIconHeight();
 

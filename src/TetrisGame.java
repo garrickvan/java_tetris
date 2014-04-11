@@ -1,5 +1,7 @@
-import java.awt.*;
+﻿import java.awt.*;
+
 import javax.swing.*;
+
 import java.awt.event.*;
 
 import tetris.graphics.*;
@@ -7,8 +9,8 @@ import tetris.input.*;
 import tetris.sound.*;
 import tetris.sound.util.*;
 import tetris.gameelements.*;
-import javax.sound.midi.*;
 
+import javax.sound.midi.*;
 import javax.sound.sampled.*;
 
 /**
@@ -215,9 +217,9 @@ public class TetrisGame {
 		
 		soundManager = new SoundManager(PLAYBACK_FORMAT);
         midiPlayer = new MidiPlayer();
-        music1 = midiPlayer.getSequence("sounds/backgroundMusic1.mid");
-        music2 = midiPlayer.getSequence("sounds/backgroundMusic2.mid");
-        music3 = midiPlayer.getSequence("sounds/backgroundMusic3.mid");
+        music1 = midiPlayer.getSequence(this.getClass().getClassLoader().getResource("sounds/backgroundMusic1.mid"));
+        music2 = midiPlayer.getSequence(this.getClass().getClassLoader().getResource("sounds/backgroundMusic2.mid"));
+        music3 = midiPlayer.getSequence(this.getClass().getClassLoader().getResource("sounds/backgroundMusic3.mid"));
 		midiPlayer.play(music1, true);
 	}
 
